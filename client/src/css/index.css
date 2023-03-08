@@ -1,0 +1,573 @@
+:root {
+  --bgColor: #f2f2f2;
+  --bgContainer: #f8f8f8;
+  --primaryColor: #110000;
+  --secondaryColor: #f0f0f0;
+  --cardTitleColorOnHover: #05cbe9;
+}
+
+:root.theme-dark {
+  --bgColor: #111d4a;
+  --bgContainer: #142256;
+  --primaryColor: #05cbe9;
+  --secondaryColor: #ffffff;
+  --cardTitleColorOnHover: #ffffff;
+}
+
+body {
+  background: var(--bgColor);
+  margin: 0;
+  font-family: "Cabin", sans-serif;
+}
+
+
+
+
+/* Typography */
+.headerTitle {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 0.5;
+  letter-spacing: 0.025;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--primaryColor);
+  cursor: pointer;
+
+}
+a {
+  text-decoration: none;
+  color: #05cbe9;
+}
+
+p {
+  cursor:  default;
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  color: var(--primaryColor);
+  transition: color 300ms;
+}
+
+.cardTitle:hover {
+  color: var(--cardTitleColorOnHover);
+}
+
+.cardNationality {
+  color: var(--primaryColor);
+}
+.navPages {
+  background: var(--bgContainer);
+  color: var(--primaryColor);
+  cursor: pointer;
+  margin: 0 2.5px;
+  padding: 10px;
+  font-size: 2.3rem;
+  line-height: 0.85;
+  letter-spacing: -0.144em;
+  font-weight: 700;
+  border: none;
+  transition: color 250ms;
+}
+
+.navPages:hover {
+  color: var(--cardTitleColorOnHover);
+}
+
+.hideButton {
+  display: none;
+}
+.currentPage {
+  background: var(--bgContainer);
+  color: var(--primaryColor);
+  cursor: pointer;
+  margin: 0 2.5px;
+  padding: 10px;
+  font-size: 2.3rem;
+  line-height: 0.85;
+  letter-spacing: -0.144em;
+  font-weight: 700;
+  border: none;
+}
+
+/* Typography */
+
+.headerContent {
+  display: flex;
+  margin: 1.1em auto;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 1900px;
+  background: var(--bgContainer);
+}
+
+.container {
+  display: flex;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  /* border: 3px solid skyblue; */
+  border-radius: 10px;
+  max-width: 1900px;
+  justify-content: space-around;
+}
+
+.spanTitle {
+  display: flex;
+  margin-left: 5px;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+/* filtersSection */
+
+.filtersBtn {
+  background: var(--bgColor);
+  font-size: 0.8rem;
+  padding: 10px 0;
+  color: var(--primaryColor);
+  cursor: pointer;
+  margin: 0.45rem 0;
+  border: none;
+}
+.caret {
+  border-left: solid 6px transparent;
+  margin: 7px 7px 0 0;
+  border-right: solid 6px transparent;
+  border-top: solid 6px var(--primaryColor);
+  height: 0;
+  width: 0;
+  transition: rotate 350ms;
+}
+
+.caret.rotateCaret {
+  rotate: 180deg;
+}
+.scroller {
+  width: 100%;
+  height: 50px;
+  overflow-y: auto;
+  scrollbar-color: var(--bgColor);
+  scrollbar-width: auto;
+}
+
+.filtersSection {
+  position: fixed;
+  top: 0;
+  padding: 80px 25px;
+
+  left: -100%;
+  width: 40%;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 98;
+  background: var(--bgContainer);
+  transition: left 350ms;
+}
+.filtersSection.opened {
+  left: 0;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 5px 0;
+  background: var(--bgContainer);
+  margin: 5px 3px auto;
+  list-style-type: none;
+  color: var(--primaryColor);
+  accent-color: var(--primaryColor);
+  width: 95%;
+}
+
+.liFilterName {
+  cursor: pointer;
+}
+
+.filterBy {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: space-between;
+}
+.filterBoxBody {
+  width: 90%;
+  margin: 0 auto;
+
+  justify-content: baseline;
+  background: var(--bgColor);
+  display: none;
+}
+.filterBoxIsOpenName {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterBoxIsOpenLastName {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterBoxIsOpenAge {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterBoxIsOpenFavoriteColor {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterBoxIsOpenCountry {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterBoxIsOpenHobbie {
+  display: flex;
+  flex-direction: column;
+}
+/* filtersSection */
+.listCardsContainer {
+  width: 100%;
+  border-radius: 10px;
+  background: var(--bgContainer);
+}
+.listContainer {
+  background: var(--bgContainer);
+
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 10px;
+}
+.navButtons {
+  margin-top: 20px;
+  background: var(--bgContainer);
+  margin-bottom: 20px;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+}
+
+/**** Card layout ****/
+
+.cardContainer {
+  background: var(--bgColor);
+  padding: 7px 10px;
+  border: 3px solid var(--primaryColor);
+  border-radius: 10px;
+  margin: 0.5em;
+  min-width: 7.2em;
+
+  display: flex;
+  flex-direction: column;
+  transition: transform 250ms;
+}
+.cardContainer:hover,
+.cardContainer:focus {
+  transform: scale(1.05);
+}
+.cardContainer h2,
+.cardContainer p,
+.cardContainer .imgDiv {
+  text-align: center;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+}
+.imgProfile {
+  border-radius: 5px;
+  display: flex;
+  justify-content: end;
+}
+
+/**** Card layout ****/
+/* Buttons */
+.spanButton {
+  display: flex;
+  justify-content: end;
+}
+.xBtn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  color: var(--primaryColor);
+  cursor: pointer;
+  transition: color 250ms;
+}
+
+.xBtn:hover,
+.xBtn:focus {
+  color: var(--cardTitleColorOnHover);
+}
+
+/* Hamburger button */
+.line {
+  background: white;
+  color: white;
+}
+
+.buttonHamburger {
+  background: transparent;
+  fill: var(--primaryColor);
+  border: none;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.buttonHamburger .line {
+  transition: y 250ms ease-in 250ms, rotate 250ms ease-in, opacity 0ms 250ms;
+  transform-origin: center;
+}
+
+.opened .line {
+  transition: y 250ms ease-in, rotate 250ms ease-in 250ms, opacity 0ms 250ms;
+}
+
+.opened :is(.top, .bottom) {
+  y: 50px;
+}
+
+.opened .top {
+  rotate: 45deg;
+}
+
+.opened .middle {
+  opacity: 0;
+}
+
+.opened .bottom {
+  rotate: -45deg;
+  translate: -7px;
+}
+
+/* Hamburger button */
+
+/* Dark mode */
+.sunIcon,
+.moonIcon {
+  /* font-size: 2.1875em; */
+  font-size: 2.1875em;
+
+  /* padding: 4px 3px; */
+}
+
+.moonButton,
+.sunButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-right: 0.2rem;
+}
+
+.sunButton {
+  color: var(--primaryColor);
+}
+.moonButton {
+  color: var(--primaryColor);
+}
+
+/* Dark mode */
+
+/* Buttons */
+
+/* Show Character */
+.showCharacterDiv {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background: var(--bgContainer);
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+  text-align: center;
+  color: var(--primaryColor);
+  max-width: 950px;
+}
+
+.fullName {
+  background: var(--bgColor);
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.otherCharacterInfo {
+  background: var(--bgColor);
+  margin-bottom: 1em;
+}
+
+.updateButton {
+  color: var(--primaryColor);
+  background: var(--bgColor);
+  padding: 0.6rem 1.9rem;
+  border-radius: 5px;
+  border: 1px solid var(--primaryColor);
+  cursor: pointer;
+  transition: background 300ms, color 300ms;
+}
+
+.updateButton:hover,
+.updateButton:focus {
+  background: var(--primaryColor);
+  color: var(--secondaryColor);
+}
+.imgShowCharacter {
+  width: 15em;
+  justify-content: center;
+  margin: 1em;
+}
+
+/* Show Character */
+
+/* Edit Character */
+
+.updateH2 {
+  margin-bottom: 0;
+}
+
+.editField {
+  width: 50%;
+  max-width: 250px;
+  margin: 0.2em auto;
+  cursor: text;
+}
+
+.updateForm {
+  justify-content: center;
+  padding: 10px;
+}
+
+.updateCharacter {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background: var(--bgContainer);
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+  text-align: center;
+  color: var(--primaryColor);
+  max-width: 950px;
+}
+.updateName,
+.updateOtherInfo {
+  color: var(--primaryColor);
+  background: var(--bgColor);
+  margin: 0 auto;
+  justify-content: center;
+  margin-bottom: 1em;
+  padding: 0.9em 0;
+}
+
+::placeholder {
+  color: var(--primaryColor);
+  opacity: 0.7;
+}
+input[type="text"],
+textarea {
+  background: var(--bgColor);
+}
+
+input {
+  color: var(--primaryColor);
+  padding: 0.6em;
+  border-radius: 10px;
+  border: 1px solid var(--primaryColor);
+  cursor: pointer;
+}
+.updateOtherInfo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+.imgUpdate {
+  width: 15em;
+  justify-content: center;
+  margin: 1em auto;
+}
+
+.submitButton {
+  width: 40%;
+  max-width: 200px;
+  margin: 0.8em auto;
+  cursor: pointer;
+}
+/* Edit Character */
+
+/* Create Character */
+.createCharacterButton {
+  background: var(--bgColor);
+  padding: 0.7rem 1.2rem;
+  color: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 250ms, color 250ms;
+}
+
+.createCharacterButton:hover {
+  background: var(--bgContainer);
+  color: var(--cardTitleColorOnHover);
+  border: 1px solid var(--cardTitleColorOnHover);
+}
+
+.characterForm {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background: var(--bgContainer);
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+  text-align: center;
+  color: var(--primaryColor);
+  max-width: 950px;
+}
+
+.createField {
+  margin: 0.38em 0;
+  cursor: text;
+}
+.createTitle {
+  color: var(--primaryColor);
+}
+
+/* Create Character */
+@media (min-width: 650px) {
+
+  .container {
+    margin-top: 0.3rem;
+    display: flex;
+    flex-direction: row;
+  }
+  .buttonHamburger {
+    display: none !important;
+  }
+
+  .filtersSection {
+    width: 25%;
+    left: unset;
+    position: relative;
+    min-height: unset;
+    border: none;
+    margin-right: 0.5rem;
+    padding: 10px 10px;
+    border-radius: 10px;
+    height: auto;
+  }
+  .noData {
+    width: 100%;
+    color: var(--primaryColor);
+    font-size: 4rem;
+  }
+}
